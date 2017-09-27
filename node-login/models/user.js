@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = mongoose.Schema({ 
-
 	name 			: String,
 	email			: {type: String, unique: true}, 
 	hashed_password	: String,
@@ -16,6 +15,6 @@ const userSchema = mongoose.Schema({
 });
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://androidserverlogin-rycao18.c9users.io:28017/node-login');
+mongoose.connect('mongodb://localhost:27017/node-login');
 
 module.exports = mongoose.model('user', userSchema);        
