@@ -1,7 +1,8 @@
 package com.learn2crack.fragments;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -179,8 +180,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void goToRegister(){
-
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
         RegisterFragment fragment = new RegisterFragment();
         ft.replace(R.id.fragmentFrame,fragment,RegisterFragment.TAG);
         ft.commit();
@@ -189,8 +190,8 @@ public class LoginFragment extends Fragment {
     private void showDialog(){
 
         ResetPasswordDialog fragment = new ResetPasswordDialog();
-
-        fragment.show(getFragmentManager(), ResetPasswordDialog.TAG);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragment.show(fragmentManager, ResetPasswordDialog.TAG);
     }
 
     @Override

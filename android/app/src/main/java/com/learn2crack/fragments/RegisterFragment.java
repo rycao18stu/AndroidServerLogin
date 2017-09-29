@@ -1,11 +1,12 @@
 package com.learn2crack.fragments;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -156,7 +157,7 @@ public class RegisterFragment extends Fragment {
                 e.printStackTrace();
             }
         } else {
-
+            System.out.println(error);
             showSnackBarMessage("Network Error !");
         }
     }
@@ -170,8 +171,8 @@ public class RegisterFragment extends Fragment {
     }
 
     private void goToLogin(){
-
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
         LoginFragment fragment = new LoginFragment();
         ft.replace(R.id.fragmentFrame, fragment, LoginFragment.TAG);
         ft.commit();

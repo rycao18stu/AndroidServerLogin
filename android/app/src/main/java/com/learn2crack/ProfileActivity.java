@@ -91,7 +91,7 @@ public class ProfileActivity extends AppCompatActivity implements ChangePassword
         bundle.putString(Constants.TOKEN,mToken);
         fragment.setArguments(bundle);
 
-        fragment.show(getFragmentManager(), ChangePasswordDialog.TAG);
+        fragment.show(getSupportFragmentManager(), ChangePasswordDialog.TAG);
     }
 
     private void loadProfile() {
